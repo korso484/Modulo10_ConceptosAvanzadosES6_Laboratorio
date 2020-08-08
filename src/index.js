@@ -159,8 +159,8 @@ console.log(subTotalD(shoppingCart));
 //Obtén la lista por consola en formato "Producto -> Precio Total €" y ordenada por categoría.
 
 const newOrderList = products => products
+    .map(product => ({ category: product.category, name: product.product, price: product.units * product.price }))
     .sort((p1, p2) => (p1.category < p2.category) ? -1 : 1)
-    .map(product => ({ name: product.product, price: product.units * product.price }))
     .reduce((acc, product) => acc + "Producto: " + product.name + " -> Precio total " + product.price + " € \n", "");
 
 console.log(newOrderList(shoppingCart));
